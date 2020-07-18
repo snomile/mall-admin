@@ -198,7 +198,7 @@
                     <imageName>mall/${project.artifactId}:${project.version}</imageName>
                     <dockerHost>${docker.host}</dockerHost>
                     <baseImage>java:8</baseImage>
-                    <entryPoint>["java", "-jar", "-Dspring.profiles.active=dev","/${project.build.finalName}.jar"]
+                    <entryPoint>["java", "-jar", "-Dspring.profiles.active=dev -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=128m -Xms256m -Xmx256m -Xmn256m -Xss256k -XX:SurvivorRatio=8 -XX:+UseConcMarkSweepGC","/${project.build.finalName}.jar"]
                     </entryPoint>
                     <resources>
                         <resource>
